@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Home</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/annyang/2.6.1/annyang.min.js"></script>
+  <style>
+    nav ul li a:hover {
+      color: #f00; 
+    }
+
+    #quote-container {
+      font-style: italic;
+      text-align: center;
+      margin-top: 20px;
+      font-size: 1.2em;
+    }
+
+    .button-56 {
+      align-items: center;
+      background-color: #fee6e3;
+      border: 2px solid #111;
+      border-radius: 8px;
+      box-sizing: border-box;
+      color: #111;
+      cursor: pointer;
+      display: flex;
+      font-family: Inter, sans-serif;
+      font-size: 16px;
+      height: 48px;
+      justify-content: center;
+      line-height: 24px;
+      max-width: 100%;
+      padding: 0 25px;
+      position: relative;
+      text-align: center;
+      text-decoration: none;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+    }
+
+    .button-56:after {
+      background-color: #111;
+      border-radius: 8px;
+      content: "";
+      display: block;
+      height: 48px;
+      left: 0;
+      width: 100%;
+      position: absolute;
+      top: -2px;
+      transform: translate(8px, 8px);
+      transition: transform .2s ease-out;
+      z-index: -1;
+    }
+
+    .button-56:hover:after {
+      transform: translate(0, 0);
+    }
+
+    .button-56:active {
+      background-color: #ffdeda;
+      outline: 0;
+    }
+
+    .button-56:hover {
+      outline: 0;
+    }
+
+    @media (min-width: 768px) {
+      .button-56 {
+        padding: 0 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="stocks.html">Stocks</a></li>
+      <li><a href="dogs.html">Dogs</a></li>
+    </ul>
+  </nav>
+
+  <div class="button-container">
+    <a href="stocks.html" class="button-56">Stocks</a>
+    <a href="dogs.html" class="button-56">Dogs</a>
+  </div>
+
+  <div id="quote-container"></div>
+
+  <div id="audio-controls">
+    <h3>Audio Instructions</h3>
+    <ul>
+      <li>Say "Hello"</li>
+      <li>Say "Change the color to red"</li>
+      <li>Say "Navigate to dogs"</li>
+    </ul>
+    <button onclick="turnOnAudio()">Turn On Audio</button>
+    <button onclick="turnOffAudio()">Turn Off Audio</button>
+  </div>
+
+  <script>
+    fetch('https://zenquotes.io/api/random')
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('quote-container').textContent = `${data[0].q} - ${data[0].a}`;
+      });
+
+    if (annyang) {
+      const commands = {
+        'hello': () => alert('Hello World'),
+        'change the color to *color': color => document.body.style.backgroundColor = color,
+        'navigate to *page': page => {
+          const pages = { home: 'index.html', dogs: 'dogs.html', stocks: 'stocks.html' };
+          const lower = page.toLowerCase();
+          if (pages[lower]) window.location.href = pages[lower];
+        }
+      };
+      annyang.addCommands(commands);
+      annyang.start();
+    }
+
+    function turnOffAudio() {
+      if (annyang) annyang.abort();
+    }
+
+    function turnOnAudio() {
+      if (annyang) annyang.start();
+    }
+  </script>
+</body>
+</html>
+

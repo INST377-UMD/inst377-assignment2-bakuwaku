@@ -1,0 +1,187 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+
+  nav ul {
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+    background-color: #eee;
+    padding: 10px;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+  }
+  
+  nav ul li a:hover {
+    background-color: #ddd;
+  }
+  
+
+  .button-56 {
+    align-items: center;
+    background-color: #fee6e3;
+    border: 2px solid #111;
+    border-radius: 8px;
+    box-sizing: border-box;
+    color: #111;
+    cursor: pointer;
+    display: flex;
+    font-family: Inter, sans-serif;
+    font-size: 16px;
+    height: 48px;
+    justify-content: center;
+    line-height: 24px;
+    max-width: 100%;
+    padding: 0 25px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    margin: 10px;
+  }
+  
+  .button-56:active {
+    background-color: #ffdeda;
+    outline: 0;
+  }
+  
+  .button-56:hover {
+    background-color: #ffdeda; 
+  }
+  
+  #quote {
+    font-size: 1.5em;
+    margin-top: 20px;
+    text-align: center;
+    font-style: italic;
+    color: #333;
+  }
+  
+  #audio-instructions {
+    margin-top: 40px;
+  }
+  
+  .audio-box {
+    margin-top: 50px;
+    padding: 15px;
+    background-color: #f0f0f0;
+    border-top: 2px solid black;
+  }
+  
+
+  .slider img {
+    width: 100%;
+    height: auto;
+  }
+  
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .carousel-container .slider-item {
+    display: none;
+    width: 300px;  
+    height: auto;
+    margin: 10px;  
+  }
+  
+  .carousel-container .active {
+    display: block;
+  }
+  
+  
+  #breed-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; 
+    gap: 10px;  
+    margin-top: 20px;
+  }
+  
+  #breed-buttons button {
+    font-size: 14px;  
+    padding: 10px 20px;
+    background-color: #fee6e3;
+    border: 2px solid #111;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  #breed-buttons button:hover {
+    background-color: #ffdeda;
+  }
+  
+
+  #breed-info {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+  
+  #breed-name {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+  
+  #breed-desc, #breed-life {
+    font-size: 1.1em;
+  }
+  
+  #stockForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+  }
+  
+  #stockForm input,
+  #stockForm select {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+  }
+  
+  canvas {
+    max-width: 90%;
+    margin: 20px auto;
+    display: block;
+  }
+  
+  table {
+    width: 90%;
+    margin: 0 auto 30px;
+    border-collapse: collapse;
+  }
+  
+  table, th, td {
+    border: 1px solid #ccc;
+  }
+  
+  th, td {
+    padding: 10px;
+    text-align: center;
+  }
+  
+  table th {
+    background-color: #fee6e3;
+  }
+  
+  table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
